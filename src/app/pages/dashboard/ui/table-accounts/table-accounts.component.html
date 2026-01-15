@@ -1,0 +1,78 @@
+<div class="accounts-section">
+  <div class="header-actions">
+    <h2 class="section-title">My accounts</h2>
+    <div class="controls">
+      <input type="text" class="search-input" placeholder="Search" />
+      <button class="action-btn">Filter</button>
+      <button class="action-btn">Sort</button>
+      <button class="action-btn">Group</button>
+      <button class="action-btn primary">+ New</button>
+    </div>
+  </div>
+
+  <div class="accounts-table">
+    <div class="table-grid table-header">
+      <div>Account Name/Type</div>
+      <div>Line</div>
+      <div>Broker</div>
+      <div>Renewal Date</div>
+      <div>Premium</div>
+      <div>Rated Premium</div>
+      <div>Loss Ratio</div>
+      <div>Appetite</div>
+      <div>Status</div>
+      <div>Triage</div>
+      <div>Winnability</div>
+      <div></div>
+    </div>
+
+    <div class="table-body">
+      @for (acc of accounts; track acc.account_name) {
+        <div class="table-grid table-row">
+          <div class="account-cell">
+            <span class="account-name">{{ acc.account_name }}</span>
+            <span class="account-type">{{ acc.type }}</span>
+          </div>
+
+          <div class="cell-text">{{ acc.line }}</div>
+          <div class="cell-text">{{ acc.broker }}</div>
+          <div class="cell-text">{{ acc.renewal_date }}</div>
+          <div class="premium-value">{{ acc.premium }}</div>
+          <div class="cell-text">{{ acc.rated_premium }}</div>
+
+          <div>
+            <span class="badge badge-loss green">{{ acc.loss_ratio }}</span>
+          </div>
+
+          <div>
+            <span class="badge badge-appetite">{{ acc.appetite }}</span>
+          </div>
+
+          <div class="status-container">
+            <div class="status-dot active"></div>
+            <span class="status-text">{{ acc.status }}</span>
+          </div>
+
+          <div>
+            <span class="triage-badge">{{ acc.triage }}</span>
+          </div>
+
+          <div class="winnability-cell">
+            <div class="winnability-dots">
+              <div class="winnability-dot filled"></div>
+              <div class="winnability-dot filled"></div>
+              <div class="winnability-dot filled"></div>
+              <div class="winnability-dot filled"></div>
+              <div class="winnability-dot"></div>
+            </div>
+            <span class="winnability-label">{{ acc.winnability }}</span>
+          </div>
+
+          <div class="align-right">
+            <button class="info-btn">⋮</button>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

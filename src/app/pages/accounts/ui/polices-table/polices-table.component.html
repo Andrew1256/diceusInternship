@@ -1,0 +1,85 @@
+<div class="policies-card">
+  <div class="card-header">
+    <h2>Policies</h2>
+  </div>
+
+  <div class="controls-row">
+    <div class="search-box">
+      <input type="text" placeholder="Search" />
+    </div>
+    <button class="btn-outline">Filter</button>
+    <button class="btn-outline">Group</button>
+  </div>
+
+  <div class="queue-container">
+    <div class="queue-header">
+      <div>Line / ID</div>
+      <div>Effective</div>
+      <div>Expiration</div>
+      <div>Status</div>
+      <div>Exp. Premium</div>
+      <div>Ren. Premium</div>
+      <div>Rate</div>
+      <div>Loss Ratio</div>
+      <div></div>
+    </div>
+
+    <div class="queue-body">
+      @for (item of filteredPolicies(); track item.id; let isOdd = $odd) {
+        <div class="queue-row" [class.is-odd]="isOdd">
+          <div class="col-line">
+            <div class="icon-box" [ngClass]="item.icon_type">
+              <img [src]="item.icon_url" [alt]="item.line" />
+            </div>
+            <div class="text-group">
+              <div class="main-text">{{ item.line }}</div>
+              <div class="sub-text">#{{ item.id }}</div>
+            </div>
+          </div>
+
+          <div class="col-date">{{ item.eff_date }}</div>
+          <div class="col-date">{{ item.exp_date }}</div>
+
+          <div class="col-status">
+            <span class="status-badge" [ngClass]="item.status.toLowerCase()">
+              <span class="status-dot"></span>
+              {{ item.status }}
+            </span>
+          </div>
+
+          <div class="col-amount">
+            {{ item.expiring_premium | currency: 'USD' : 'symbol' : '1.0-0' }}
+          </div>
+          <div class="col-amount">
+            {{ item.renewal_premium | currency: 'USD' : 'symbol' : '1.0-0' }}
+          </div>
+
+          <div class="col-rate" [class.warning]="item.rate_change > 5">
+            {{ item.rate_change }}%
+          </div>
+
+          <div class="col-loss">
+            @if (item.loss_ratio !== null) {
+              <span
+                class="loss-pill"
+                [ngClass]="getLossRatioClass(item.loss_ratio)"
+              >
+                {{ item.loss_ratio }}%
+              </span>
+            } @else {
+              <span class="muted-text">N/A</span>
+            }
+          </div>
+
+          <div class="col-actions">
+            <button class="icon-btn">⋮</button>
+          </div>
+        </div>
+      } @empty {
+        <div class="empty-state">
+          Дані не знайдено або файл завантажується...
+        </div>
+      }
+    </div>
+  </div>
+</div>

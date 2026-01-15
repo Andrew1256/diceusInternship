@@ -1,0 +1,96 @@
+@use '../../../../shared/styles/variables' as v;
+
+.policies-section {
+  .section-title {
+    color: v.$text-main;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  .policies-container {
+    background-color: v.$bg-main;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid v.$color-border;
+  }
+
+  .policies-grid {
+    display: grid;
+    // 5 колонок для великих моніторів
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+
+    // Для невеликих ноутбуків та великих планшетів (iPad Pro)
+    @media (max-width: 1200px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .policy-card {
+    background-color: v.$bg-card;
+    padding: 16px;
+    border-radius: 10px;
+    display: grid;
+    gap: 8px;
+    transition:
+      transform 0.2s ease,
+      background-color 0.2s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+
+    &:hover {
+      background-color: lighten(v.$bg-card, 3%);
+      transform: translateY(-2px);
+      border-color: v.$color-border;
+    }
+
+    .policy-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .icon {
+        font-size: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        // Використовуємо змінні статусів для іконок
+        &.icon-blue {
+          color: v.$color-active;
+        }
+        &.icon-green {
+          color: v.$status-completed;
+        }
+        &.icon-purple {
+          color: #8b5cf6;
+        } // Якщо немає в v, можна залишити або додати нову
+        &.icon-yellow {
+          color: v.$status-pending;
+        }
+        &.icon-red {
+          color: v.$status-danger;
+        }
+      }
+
+      .policy-name {
+        color: v.$text-main;
+        font-size: 15px;
+        font-weight: 400;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; // Щоб довгі назви не ламали картку
+      }
+    }
+
+    .policy-details {
+      p {
+        color: v.$text-muted;
+        font-size: 13px;
+        margin: 2px 0;
+        letter-spacing: 0.3px;
+      }
+    }
+  }
+}

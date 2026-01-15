@@ -1,0 +1,10 @@
+<div class="location-container">
+  Dashboard //
+  @for (item of breadcrumbs(); track $index; let isLast = $last) {
+    <span class="location-item" [class.active]="isLast">
+      {{ item }}
+    </span>
+
+    @if (!isLast) {}
+  }
+</div>

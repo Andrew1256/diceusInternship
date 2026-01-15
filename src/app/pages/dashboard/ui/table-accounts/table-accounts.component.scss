@@ -1,0 +1,183 @@
+@use '../../../../shared/styles/variables' as v;
+
+/* Основний контейнер */
+.accounts-section {
+  color: v.$text-main;
+}
+
+/* Шапка з кнопками */
+.header-actions {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin: 0;
+  color: v.$text-main;
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Сітка таблиці - головний секрет вирівнювання */
+.table-grid {
+  display: grid;
+  /* 11 колонок з пропорційним розподілом */
+  grid-template-columns: 2fr 1.2fr 1.2fr 1.1fr 0.8fr 0.8fr 0.9fr 0.9fr 1fr 0.7fr 1fr 40px;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 12px 16px;
+  text-align: left;
+}
+
+/* Заголовки */
+.table-header {
+  font-size: 11px;
+  font-weight: 600;
+  color: v.$text-dim; // #6b7b95
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid v.$bg-card-light; // #1e293b
+}
+
+.search-input {
+  border: none;
+  border-radius: 25px;
+  padding-left: 15px;
+  height: 25px;
+  background: v.$bg-card; // #232838
+  color: v.$text-main;
+  outline: none;
+}
+
+/* Рядки даних */
+.table-row {
+  border-bottom: 1px solid v.$bg-card-light; // #1e293b
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+
+.table-row:hover {
+  background: v.$bg-card-light; // #161e2e
+}
+
+/* Елементи комірок */
+.account-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+.account-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: v.$text-main; // #f8fafc
+}
+
+.account-type {
+  font-size: 11px;
+  color: v.$text-dim; // #64748b
+}
+
+.cell-text {
+  font-size: 13px;
+  color: v.$text-muted; // #cbd5e1
+}
+
+.premium-value {
+  font-size: 13px;
+  font-weight: 700;
+  color: v.$color-active; // #60a5fa
+}
+
+/* Бейджі */
+.badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 700;
+  display: inline-block;
+  text-align: center;
+}
+
+.badge-loss.green {
+  background: v.$status-completed; // #10b981
+  color: v.$text-main;
+}
+
+.badge-appetite {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  background: v.$bg-card-light; // #1e293b
+  color: v.$text-muted; // #94a3b8
+}
+
+.triage-badge {
+  padding: 4px 8px;
+  background: v.$bg-card-light; // #1e293b
+  border: 1px solid v.$color-border; // #334155
+  border-radius: 25px;
+  color: v.$color-active; // #60a5fa
+  font-weight: 600;
+}
+
+/* Статус */
+.status-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+
+  &.active {
+    background: v.$status-completed; // #10b981
+  }
+}
+
+/* Кнопки */
+.action-btn {
+  background: v.$bg-card-light; // #1e293b
+  border: 1px solid v.$color-active; // #3b82f6
+  color: v.$color-active;
+  padding: 6px 26px;
+  border-radius: 25px;
+  font-size: 11px; // Видалено 12px
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &.primary {
+    background: v.$color-active; // #3b82f6
+    border: none;
+    color: v.$text-main;
+  }
+}
+
+.info-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid v.$color-border; // #334155
+  background: transparent;
+  color: v.$text-dim; // #64748b
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: v.$color-active;
+    color: v.$color-active;
+  }
+}

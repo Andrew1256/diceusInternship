@@ -1,0 +1,263 @@
+@use '../../../../shared/styles/variables' as v;
+
+.card-header {
+  padding: 20px 0;
+  h2 {
+    color: v.$text-main;
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0;
+  }
+}
+
+.controls-row {
+  display: grid;
+  // Гнучка сітка для планшетів
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+  align-items: center;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 200px auto auto 1fr;
+  }
+
+  .search-box {
+    background: v.$bg-input;
+    border: 1px solid v.$bg-card-light;
+    border-radius: 20px;
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    input {
+      background: transparent;
+      border: none;
+      color: v.$text-main;
+      outline: none;
+      width: 100%;
+      font-size: 13px;
+    }
+  }
+
+  .btn-outline {
+    background: transparent;
+    border: 1px solid v.$color-primary;
+    color: v.$color-primary;
+    border-radius: 20px;
+    padding: 5px 16px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: rgba(v.$color-primary, 0.1);
+    }
+  }
+}
+
+.policies-card {
+  background-color: v.$bg-card;
+  border: 1px solid v.$color-border;
+  border-radius: 12px;
+  padding: 16px;
+  overflow-x: auto; // Важливо для малих екранів (горизонтальний скрол таблиці)
+
+  .queue-header {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr 1fr 1fr 1.2fr 1.2fr 0.8fr 1fr 0.4fr;
+    gap: 12px;
+    padding: 12px 16px;
+    color: v.$text-muted;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-width: 900px; // Запобігає "злипанню" колонок
+  }
+
+  .queue-body {
+    min-width: 900px;
+
+    .queue-row {
+      display: grid;
+      grid-template-columns: 2.5fr 1fr 1fr 1fr 1.2fr 1.2fr 0.8fr 1fr 0.4fr;
+      gap: 12px;
+      align-items: center;
+      padding: 12px 16px;
+      background-color: v.$bg-main;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: v.$bg-card-light;
+      }
+
+      &.is-odd {
+        background-color: rgba(v.$bg-card-light, 0.4);
+      }
+
+      .col-line {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        .icon-box {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+
+          img {
+            width: 18px;
+            height: 18px;
+            filter: brightness(0) invert(1);
+          }
+
+          // Використання системних кольорів для типів політик
+          &.marine {
+            background-color: v.$color-active;
+          }
+          &.liability {
+            background-color: v.$status-completed;
+          }
+          &.workers {
+            background-color: #8b5cf6;
+          } // Якщо немає в v, залишаємо акцент
+          &.umbrella {
+            background-color: v.$status-danger;
+          }
+          &.property {
+            background-color: v.$status-pending;
+          }
+        }
+
+        .text-group {
+          .main-text {
+            color: v.$text-main;
+            font-weight: 500;
+            font-size: 14px;
+            display: block;
+          }
+          .sub-text {
+            color: v.$text-muted;
+            font-size: 11px;
+          }
+        }
+      }
+
+      .col-date,
+      .col-amount {
+        color: v.$text-muted;
+        font-size: 13px;
+      }
+
+      .col-status {
+        .status-badge {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          padding: 4px 10px;
+          background: v.$bg-input;
+          border-radius: 12px;
+          font-size: 11px; // Замість 12px
+          color: v.$text-main;
+
+          .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+          }
+
+          &.active {
+            color: v.$status-completed;
+            .status-dot {
+              background-color: v.$status-completed;
+            }
+          }
+          &.pending {
+            color: v.$status-pending;
+            .status-dot {
+              background-color: v.$status-pending;
+            }
+          }
+        }
+      }
+
+      .col-rate {
+        color: v.$text-muted;
+        font-size: 13px;
+        &.warning {
+          color: v.$status-danger;
+          font-weight: 600;
+        }
+      }
+
+      .col-loss {
+        .loss-pill {
+          display: inline-block;
+          padding: 2px 8px;
+          border-radius: 4px;
+          font-size: 11px;
+          font-weight: 700;
+          min-width: 40px;
+          text-align: center;
+
+          &.low {
+            color: v.$status-completed;
+            background: rgba(v.$status-completed, 0.1);
+            border: 1px solid v.$status-completed;
+          }
+          &.mid {
+            color: v.$status-pending;
+            background: rgba(v.$status-pending, 0.1);
+            border: 1px solid v.$status-pending;
+          }
+          &.high {
+            color: v.$status-danger;
+            background: rgba(v.$status-danger, 0.1);
+            border: 1px solid v.$status-danger;
+          }
+        }
+        .muted-text {
+          color: v.$text-dim;
+          font-size: 11px; // Замість 12px
+        }
+      }
+
+      .col-actions {
+        text-align: right;
+        .icon-btn {
+          background: none;
+          border: 1px solid v.$color-border;
+          border-radius: 50%;
+          width: 28px;
+          height: 28px;
+          color: v.$text-muted;
+          cursor: pointer;
+          font-size: 18px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.2s;
+
+          &:hover {
+            color: v.$text-main;
+            border-color: v.$text-main;
+          }
+        }
+      }
+    }
+  }
+
+  .empty-state {
+    padding: 40px;
+    text-align: center;
+    color: v.$text-muted;
+    background: rgba(v.$bg-card-light, 0.2);
+    border-radius: 8px;
+  }
+}

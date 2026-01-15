@@ -1,0 +1,27 @@
+// --- ОСНОВНІ КОЛЬОРИ ФОНУ ---
+$bg-main: #111827;
+$bg-card: #161d2f;
+$bg-card-light: #1e293b;
+$bg-input: rgba(255, 255, 255, 0.05);
+
+// --- АКЦЕНТНІ КОЛЬОРИ ---
+$color-primary: #2563eb;
+$color-active: #3b82f6;
+$color-border: rgba(255, 255, 255, 0.1);
+
+// --- СТАТУСИ ТА ГРАФІКИ ---
+$status-new: #3b82f6;
+$status-pending: #f59e0b;
+$status-completed: #10b981;
+$status-danger: #ef4444;
+
+// --- ТЕКСТ ---
+$text-main: #ffffff;
+$text-muted: #94a3b8;
+$text-dim: #64748b;
+
+// --- ТІНІ ТА ЕФЕКТИ ---
+$shadow-main:
+  0 4px 6px -1px rgba(0, 0, 0, 0.1),
+  0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$glass-effect: blur(10px);

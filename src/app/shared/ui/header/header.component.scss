@@ -1,0 +1,49 @@
+@use '../../styles/variables' as v;
+
+.top-bar {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 12px 28px;
+  border-bottom: 1px solid #313b54;
+  margin: 0;
+  min-width: 300px;
+  white-space: nowrap;
+}
+
+.search {
+  margin-left: auto;
+  height: 28px;
+  background-color: v.$bg-input;
+  border-radius: 25px;
+  border: none;
+  padding: 0 12px;
+  width: 100px;
+
+  @media (min-width: 800px) {
+    width: 150px;
+  }
+  @media (min-width: 950px) {
+    width: 25%;
+  }
+}
+.main-text {
+  margin: 0;
+  font-size: 24px;
+  width: 200px;
+  white-space: normal;
+
+  @media (min-width: 750px) {
+    white-space: nowrap;
+  }
+}
+
+.round-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: v.$color-active;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,87 @@
+@use '../../styles/variables' as v;
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  background-color: v.$bg-main;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  color: v.$text-muted;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  border-radius: 20px;
+  /* Використовуємо напівпрозорий колір бордюру з ваших змінних */
+  border: 1px solid v.$color-border;
+  background-color: v.$bg-main;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+
+  img {
+    width: 18px;
+    height: 18px;
+  }
+
+  &:hover {
+    background-color: v.$bg-card;
+    border-color: v.$text-dim;
+    color: v.$text-main;
+  }
+
+  &.active {
+    background-color: v.$color-active;
+    color: v.$text-main;
+    border-color: v.$color-active;
+
+    img {
+      filter: brightness(0) invert(1);
+    }
+  }
+}
+
+.nav-controls {
+  display: flex;
+  gap: 6px;
+  margin-left: auto;
+
+  .scroll-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    /* Використовуємо змінну для межі, як у вашому top-bar */
+    border: 1.5px solid v.$color-border;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: v.$bg-main;
+    flex-shrink: 0;
+
+    img {
+      width: 16px;
+    }
+
+    &:hover {
+      background-color: v.$bg-card-light;
+      img {
+        filter: brightness(0) invert(1);
+      }
+    }
+  }
+}

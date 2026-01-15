@@ -1,0 +1,49 @@
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 100px);
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 100px;
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(8, 100px);
+  }
+}
+
+.card {
+  background-color: #1e202e;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #2d303e;
+  align-self: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.work-queue {
+  grid-column: 1 / 7;
+  @media (max-width: 1200px) {
+    grid-column: 1/-1;
+  }
+}
+
+.portfolio-goals {
+  grid-column: 7 / 9;
+  @media (max-width: 1200px) {
+    grid-column: 1/5;
+  }
+}
+
+.other-information {
+  grid-column: 9 / -1;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  @media (max-width: 1200px) {
+    grid-column: 5/-1;
+  }
+}
+
+.my-accounts {
+  grid-column: 1 / -1;
+}

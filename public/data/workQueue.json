@@ -1,0 +1,98 @@
+[
+  {
+    "originator": "Sam Masters",
+    "client": "NAMEX Tech Solutions",
+    "line": "Cyber Liability",
+    "type": "Underwriter Referral",
+    "status": "New",
+    "created": "04/16/2025"
+  },
+  {
+    "originator": "Annalise Willis",
+    "client": "Maritime Logistics Corp",
+    "line": "Marine Cargo",
+    "type": "Underwriter Referral",
+    "status": "New",
+    "created": "04/20/2025"
+  },
+  {
+    "originator": "Patrick Devenport",
+    "client": "GreenField Energy Ltd",
+    "line": "Environmental",
+    "type": "Loss Control Request",
+    "status": "New",
+    "created": "04/16/2025"
+  },
+  {
+    "originator": "Ana Killian",
+    "client": "NorthStar Financial Group",
+    "line": "D&O Liability",
+    "type": "Underwriter Referral",
+    "status": "Pending Review",
+    "created": "04/22/2025"
+  },
+  {
+    "originator": "Ana Killian",
+    "client": "Alliance Healthcare Systems",
+    "line": "Medical Malpractice",
+    "type": "Email",
+    "status": "Completed",
+    "created": "04/28/2025"
+  },
+  {
+    "originator": "Me",
+    "client": "QuantumTech Industries",
+    "line": "Product Liability",
+    "type": "Email",
+    "status": "Completed",
+    "created": "04/20/2025"
+  },
+  {
+    "originator": "James Wilson",
+    "client": "Skyward Aviation",
+    "line": "General Liability",
+    "type": "Underwriter Referral",
+    "status": "New",
+    "created": "05/01/2025"
+  },
+  {
+    "originator": "Elena Rodriguez",
+    "client": "Global Logistics Hub",
+    "line": "Property Insurance",
+    "type": "Underwriter Referral",
+    "status": "Pending Review",
+    "created": "05/02/2025"
+  },
+  {
+    "originator": "Me",
+    "client": "BioTech Solutions Inc",
+    "line": "Professional Indemnity",
+    "type": "Loss Control Request",
+    "status": "New",
+    "created": "05/03/2025"
+  },
+  {
+    "originator": "Sarah Connor",
+    "client": "Cyberdyne Systems",
+    "line": "Technology E&O",
+    "type": "Underwriter Referral",
+    "status": "Pending Review",
+    "created": "05/04/2025"
+  },
+  {
+    "originator": "Marcus Aurelius",
+    "client": "Roma Construction Group",
+    "line": "Public Liability",
+    "type": "Underwriter Referral",
+    "status": "Pending Review",
+    "created": "05/05/2025"
+  },
+  {
+    "originator": "Me",
+    "client": "Future Dynamics",
+    "line": "Robotics Liability",
+    "type": "Email",
+    "status": "New",
+    "created": "05/06/2025"
+  }
+]

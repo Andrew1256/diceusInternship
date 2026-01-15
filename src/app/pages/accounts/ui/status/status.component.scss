@@ -1,0 +1,157 @@
+@use '../../../../shared/styles/variables' as v;
+
+.bottom-metrics {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 24px;
+  font-family: 'Inter', sans-serif;
+
+  .title {
+    color: v.$text-main;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  // Спільний стиль для контейнерів
+  .status-container,
+  .compliance-container {
+    background-color: v.$bg-main;
+    border-radius: 12px;
+    padding: 32px 24px;
+    height: 100px;
+    display: grid;
+    align-items: center;
+    border: 1px solid v.$color-border;
+  }
+
+  // Стилі Stepper (Account Status)
+  .stepper {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    position: relative;
+
+    // Лінія між кроками
+    &::before {
+      content: '';
+      position: absolute;
+      top: 15px;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      // Використовуємо колір з вашої палітри для пунктиру
+      background: repeating-linear-gradient(
+        90deg,
+        v.$bg-card-light 0,
+        v.$bg-card-light 4px,
+        transparent 4px,
+        transparent 8px
+      );
+      z-index: 0;
+    }
+
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      z-index: 1;
+
+      .circle {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        background: v.$bg-main;
+        border: 1px solid v.$text-dim;
+      }
+
+      .step-label {
+        color: v.$text-main;
+        font-size: 14px;
+      }
+
+      &.completed {
+        .circle {
+          border-color: v.$status-completed;
+          color: v.$status-completed;
+        }
+      }
+
+      &.pending {
+        .circle {
+          border: 1px solid v.$text-dim; // dashed замінено на solid для чіткості на планшетах
+          border-style: dashed;
+          color: transparent;
+        }
+        .step-label {
+          color: v.$text-dim;
+        }
+      }
+    }
+  }
+
+  // Стилі Compliance & Documentation
+  .compliance-section {
+    .header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .history-link {
+      color: v.$color-active;
+      /* font-size: 12px видалено */
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .compliance-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 12px;
+
+      .check-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: v.$text-muted;
+        font-size: 13px;
+
+        .icon-check {
+          color: v.$status-completed;
+          border: 1px solid v.$status-completed;
+          border-radius: 50%;
+          width: 16px;
+          height: 16px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .bottom-metrics {
+    grid-template-columns: 1fr;
+    .status-container,
+    .compliance-container {
+      height: auto;
+    }
+    .stepper {
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+  }
+}

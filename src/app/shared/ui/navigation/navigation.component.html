@@ -1,0 +1,48 @@
+<div class="nav-container">
+  <nav class="nav-links" #navScroll (window:resize)="checkOverflow()">
+    <a routerLink="/dashboard" routerLinkActive="active" class="nav-item">
+      <img src="/nav-ico/home.svg" alt="Home" />
+      Dashboard
+    </a>
+
+    <a routerLink="/accounts" routerLinkActive="active" class="nav-item">
+      <img src="/nav-ico/accounts.svg" alt="Accounts" />
+      Accounts
+    </a>
+
+    <a routerLink="/brokers" routerLinkActive="active" class="nav-item">
+      <img src="/nav-ico/brokers.svg" alt="Brokers" />
+      Brokers
+    </a>
+
+    <a routerLink="/submissions" routerLinkActive="active" class="nav-item">
+      <img src="/nav-ico/submissions.svg" alt="Submissions" />
+      Submissions
+    </a>
+
+    <a href="/organizations" routerLinkActive="active" class="nav-item">
+      <img src="/nav-ico/organizations.svg" alt="Organizations" />
+      Organizations
+    </a>
+
+    <a routerLink="/goals" routerLinkActive="active" class="nav-item">
+      <img src="/nav-ico/goals.svg" alt="Goals" />
+      Goals & Rules
+    </a>
+
+    <a routerLink="/admin-1" routerLinkActive="active" class="nav-item">
+      <img src="/nav-ico/admin.svg" alt="Admin" />
+      Admin
+    </a>
+  </nav>
+  @if (isOverflowing) {
+    <div class="nav-controls">
+      <button class="scroll-btn" (click)="scroll(-150)">
+        <img src="/nav-ico/arrow-left.svg" alt="Arrow left" />
+      </button>
+      <button class="scroll-btn" (click)="scroll(150)">
+        <img src="/nav-ico/arrow-right.svg" alt="Arrow right" />
+      </button>
+    </div>
+  }
+</div>

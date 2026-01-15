@@ -1,0 +1,52 @@
+@use '../../../../shared/styles/variables' as v;
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.quick-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; // Трохи збільшив відступ для кращої сепарації на тач-екранах
+}
+
+.action-btn {
+  /* Використовуємо $color-primary (#2563eb) або $color-active (#3b82f6) */
+  background-color: v.$color-primary;
+  color: v.$text-main;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  height: 35px;
+  padding: 0 20px; // Додав бічні відступи для гнучкості довжини тексту
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: darken(v.$color-primary, 8%);
+    transform: translateY(-1px); // Легкий ефект підйому
+  }
+
+  &:active {
+    transform: translateY(0);
+    background-color: darken(v.$color-primary, 15%);
+  }
+
+  // Додатковий стиль для менш важливих кнопок, якщо знадобиться
+  &.secondary {
+    background-color: v.$bg-card-light;
+    color: v.$text-muted;
+    border: 1px solid v.$color-border;
+
+    &:hover {
+      background-color: v.$bg-card;
+      color: v.$text-main;
+    }
+  }
+}

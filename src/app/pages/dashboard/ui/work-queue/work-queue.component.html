@@ -1,0 +1,76 @@
+<div class="card-header">
+  <h2>Work Queue</h2>
+</div>
+
+<div class="tabs">
+  <button
+    class="tab"
+    [class.active]="activeTab() === 'Assigned'"
+    (click)="activeTab.set('Assigned')"
+  >
+    Assigned to me ({{ countAssigned() }})
+  </button>
+
+  <button
+    class="tab"
+    [class.active]="activeTab() === 'Pending'"
+    (click)="activeTab.set('Pending')"
+  >
+    Pending Review ({{ countPending() }})
+  </button>
+
+  <button
+    class="tab"
+    [class.active]="activeTab() === 'Referrals'"
+    (click)="activeTab.set('Referrals')"
+  >
+    Referrals ({{ countReferrals() }})
+  </button>
+</div>
+
+<div class="queue-container">
+  <div class="queue-header">
+    <div>Originator</div>
+    <div>Client / Line</div>
+    <div>Type</div>
+    <div>Status</div>
+    <div>Created</div>
+    <div></div>
+  </div>
+
+  <div class="queue-body">
+    @for (item of filteredAccounts(); track $index; let isOdd = $odd) {
+      <div class="queue-row" [class.is-odd]="isOdd">
+        <div class="col-originator">
+          <div class="avatar">{{ getInitials(item.originator) }}</div>
+          <span class="name">{{ item.originator }}</span>
+        </div>
+
+        <div class="col-client">
+          <div class="main-text">{{ item.client }}</div>
+          <div class="sub-text">{{ item.line }}</div>
+        </div>
+
+        <div class="col-type">{{ item.type }}</div>
+
+        <div class="col-status">
+          <span
+            class="status-badge"
+            [ngClass]="item.status.toLowerCase().replace(' ', '-')"
+          >
+            <span class="status-dot"></span>
+            {{ item.status }}
+          </span>
+        </div>
+
+        <div class="col-date">{{ item.created | date: 'MM/dd/yyyy' }}</div>
+
+        <div class="col-actions">
+          <button class="icon-btn">⋮</button>
+        </div>
+      </div>
+    } @empty {
+      <div class="empty-msg">No tasks found for this category.</div>
+    }
+  </div>
+</div>

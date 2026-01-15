@@ -1,0 +1,158 @@
+@use '../../../../shared/styles/variables' as v;
+
+.portfolio-goals {
+  color: v.$text-main;
+  font-family: 'Inter', sans-serif;
+
+  h2 {
+    font-size: 28px;
+    margin: 0;
+    padding-bottom: 45px;
+    font-weight: 400;
+  }
+}
+
+.goal-item {
+  margin-bottom: 35px;
+}
+
+.goal-label {
+  /* font-size: 12px видалено */
+  font-size: 11px; // Або залишаємо 13px для кращої читабельності
+  color: v.$text-muted;
+  text-transform: uppercase;
+  padding: 0;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+/* Gauge Styles (Multi-color bars) */
+.gauge-container {
+  position: relative;
+}
+
+.gauge-bar.multi-segment {
+  display: flex;
+  height: 24px;
+  margin: 35px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background-color: v.$bg-card-light;
+}
+
+.segment {
+  &.green {
+    background-color: v.$status-completed;
+  }
+  &.yellow {
+    background-color: v.$status-pending;
+  }
+  &.red {
+    background-color: v.$status-danger;
+  }
+}
+
+.current-value-label {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+  font-size: 14px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  color: v.$text-main;
+}
+
+/* Markers and Arrows */
+.target-marker {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateX(-50%);
+
+  &.top {
+    top: -22px;
+  }
+  &.bottom {
+    bottom: -25px;
+  }
+}
+
+.target-text {
+  font-size: 10px;
+  color: v.$text-dim;
+  white-space: nowrap;
+}
+
+.sub-text {
+  font-size: 11px;
+  font-weight: bold;
+  margin-top: 2px;
+
+  &.green-text {
+    color: v.$status-completed;
+  }
+}
+
+.arrow-down {
+  color: v.$color-active;
+  /* font-size: 12px видалено */
+  font-size: 13px;
+}
+
+.arrow-up {
+  color: v.$status-completed;
+  /* font-size: 12px видалено */
+  font-size: 13px;
+}
+
+/* Progress Bar Styles (Blue bars) */
+.progress-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.progress-bar-bg {
+  flex-grow: 1;
+  height: 24px;
+  background-color: v.$bg-card-light;
+  overflow: hidden;
+  border-radius: 0 12px 12px 0;
+}
+
+.progress-fill-blue {
+  height: 100%;
+  /* Використання градієнта на основі основних кольорів */
+  background: linear-gradient(
+    90deg,
+    rgba(v.$color-primary, 0.1),
+    v.$color-primary
+  );
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+  border-radius: 0 12px 12px 0;
+}
+
+.inner-value {
+  font-weight: bold;
+  font-size: 13px;
+  color: v.$text-main;
+}
+
+.max-value {
+  font-weight: bold;
+  font-size: 16px;
+  color: v.$text-main;
+}
+
+.progress-sub {
+  text-align: center;
+  font-size: 11px;
+  color: v.$text-dim;
+  margin-top: 4px;
+  padding-right: 60px;
+}
